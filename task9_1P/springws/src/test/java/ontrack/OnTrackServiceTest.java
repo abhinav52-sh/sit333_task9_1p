@@ -20,8 +20,8 @@ public class OnTrackServiceTest {
     // Test to check adding a single message and its correctness
     @Test
     void testAddSingleMessage() {
-        service.addMessage("Hello"); // Add a message
-        List<String> messages = service.getMessages(); // Get the list of messages
+        service.addMessage("Hello");
+        List<String> messages = service.getMessages(); 
 
         // Assert that the list contains 1 message and that message is "Hello"
         assertEquals(1, messages.size());
@@ -31,11 +31,11 @@ public class OnTrackServiceTest {
     // Test to check adding multiple messages and their order
     @Test
     void testAddMultipleMessages() {
-        service.addMessage("Hello"); // Add the first message
-        service.addMessage("How are you?"); // Add the second message
-        service.addMessage("Bye"); // Add the third message
+        service.addMessage("Hello"); 
+        service.addMessage("How are you?");
+        service.addMessage("Bye");
 
-        List<String> messages = service.getMessages(); // Retrieve the list of messages
+        List<String> messages = service.getMessages(); 
 
         // Assert that the list contains 3 messages and verify their content and order
         assertEquals(3, messages.size());
@@ -47,10 +47,10 @@ public class OnTrackServiceTest {
     // Test to check if the returned list is independent of the original list
     @Test
     void testMessageListIsIndependentCopy() {
-        service.addMessage("Original"); // Add a message
+        service.addMessage("Original");
 
-        List<String> messages = service.getMessages(); // Get the list of messages
-        messages.add("Fake message"); // Modify the returned list (it should not affect the original)
+        List<String> messages = service.getMessages(); 
+        messages.add("Fake message"); 
 
         // Assert that the original list still contains only 1 message, not the added "Fake message"
         assertEquals(1, service.getMessages().size());
@@ -59,9 +59,9 @@ public class OnTrackServiceTest {
     // Test to check adding an empty message (should be allowed)
     @Test
     void testEmptyMessageDoesNotThrowError() {
-        assertDoesNotThrow(() -> service.addMessage("")); // Should not throw an error even for an empty message
-        assertEquals(1, service.getMessages().size()); // The list should contain one empty string
-        assertEquals("", service.getMessages().get(0)); // The first message should be empty
+        assertDoesNotThrow(() -> service.addMessage("")); 
+        assertEquals(1, service.getMessages().size()); 
+        assertEquals("", service.getMessages().get(0)); 
     }
 
     // Test to ensure that adding a null message throws an exception
@@ -83,10 +83,10 @@ public class OnTrackServiceTest {
     // Test to verify the functionality of clearing all messages
     @Test
     void testClearMessages() {
-        service.addMessage("One"); // Add a message
-        service.addMessage("Two"); // Add another message
+        service.addMessage("One"); 
+        service.addMessage("Two"); 
 
-        service.clearMessages(); // Clear all messages
+        service.clearMessages(); 
 
         // Assert that the list is now empty after clearing
         assertTrue(service.getMessages().isEmpty());
@@ -95,7 +95,7 @@ public class OnTrackServiceTest {
     // Test to check that clearing an empty list does not cause any issues
     @Test
     void testClearOnEmptyList() {
-        service.clearMessages(); // Clear the list when it's already empty
+        service.clearMessages(); 
 
         // Assert that the list remains empty
         assertTrue(service.getMessages().isEmpty());

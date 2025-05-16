@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class OnTrackApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(OnTrackApplication.class, args); // Starts the Spring Boot application
+    	// Starts the Spring Boot application
+        SpringApplication.run(OnTrackApplication.class, args); 
     }
 }

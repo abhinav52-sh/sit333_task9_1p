@@ -8,7 +8,7 @@ import java.util.List;
 @Service
 public class OnTrackService {
 
-    // A thread-safe list to store all messages
+    // list to store all messages
     private final List<String> messages = Collections.synchronizedList(new ArrayList<>());
 
     // Add a message to the list
@@ -24,7 +24,6 @@ public class OnTrackService {
         return new ArrayList<>(messages);
     }
     
-    // Add this method inside OnTrackService.java
     public void clearMessages() {
         messages.clear();
     }

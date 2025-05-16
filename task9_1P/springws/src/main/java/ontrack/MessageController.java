@@ -16,7 +16,8 @@ public class MessageController {
     // Show form and current messages
     @GetMapping("/")
     public String index(Model model) {
-        model.addAttribute("messages", onTrackService.getMessages()); // Add all messages to the model
+    	// Add all messages to the model
+        model.addAttribute("messages", onTrackService.getMessages()); 
         return "index";
     }
 
@@ -30,16 +31,21 @@ public class MessageController {
             model.addAttribute("success", "Message added successfully!");
         }
 
-        model.addAttribute("messages", onTrackService.getMessages()); // Show updated list
+        // Show updated list
+        model.addAttribute("messages", onTrackService.getMessages()); 
         return "index";
     }
     
     // Add this method to MessageController.java
     @PostMapping("/messages/clear")
     public String clearMessages(Model model) {
-        onTrackService.clearMessages(); // Clear all messages
+        onTrackService.clearMessages();
+        
+        // Clear all messages
         model.addAttribute("success", "All messages cleared.");
-        model.addAttribute("messages", onTrackService.getMessages()); // Empty list
+        
+        // Empty list
+        model.addAttribute("messages", onTrackService.getMessages()); 
         return "index";
     }
 
